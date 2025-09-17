@@ -1,6 +1,7 @@
 'use client'
 
 import React, {useState} from 'react';
+import BoardSquare from './BoardSquare';
 
 export default function GameBoard()
 {
@@ -35,64 +36,19 @@ export default function GameBoard()
 
             <div className="grid grid-cols-3 grid-rows-3 gap-3 w-80 h-80 bg-slate-800 p-3 rounded-xl shadow-2xl border border-blue-700/50">
                 {/* Row 0 */}
-                <button 
-                    className="bg-slate-100 border-2 border-slate-600 text-4xl font-bold text-slate-800 hover:bg-blue-100 hover:border-blue-500 transition-all duration-200 rounded-lg shadow-inner"
-                    onClick={() => clickSquare(0, 0)}
-                >
-                    {board[0][0]}
-                </button>
-                <button 
-                    className="bg-slate-100 border-2 border-slate-600 text-4xl font-bold text-slate-800 hover:bg-blue-100 hover:border-blue-500 transition-all duration-200 rounded-lg shadow-inner"
-                    onClick={() => clickSquare(0, 1)}
-                >
-                    {board[0][1]}
-                </button>
-                <button 
-                    className="bg-slate-100 border-2 border-slate-600 text-4xl font-bold text-slate-800 hover:bg-blue-100 hover:border-blue-500 transition-all duration-200 rounded-lg shadow-inner"
-                    onClick={() => clickSquare(0, 2)}
-                >
-                    {board[0][2]}
-                </button>
+                <BoardSquare value={board[0][0]} onClick={() => clickSquare(0, 0)} row={0} col={0} />
+                <BoardSquare value={board[0][1]} onClick={() => clickSquare(0, 1)} row={0} col={1} />
+                <BoardSquare value={board[0][2]} onClick={() => clickSquare(0, 2)} row={0} col={2} />
 
                 {/* Row 1 */}
-                <button 
-                    className="bg-slate-100 border-2 border-slate-600 text-4xl font-bold text-slate-800 hover:bg-blue-100 hover:border-blue-500 transition-all duration-200 rounded-lg shadow-inner"
-                    onClick={() => clickSquare(1, 0)}
-                >
-                    {board[1][0]}
-                </button>
-                <button 
-                    className="bg-slate-100 border-2 border-slate-600 text-4xl font-bold text-slate-800 hover:bg-blue-100 hover:border-blue-500 transition-all duration-200 rounded-lg shadow-inner"
-                    onClick={() => clickSquare(1, 1)}
-                >
-                    {board[1][1]}
-                </button>
-                <button 
-                    className="bg-slate-100 border-2 border-slate-600 text-4xl font-bold text-slate-800 hover:bg-blue-100 hover:border-blue-500 transition-all duration-200 rounded-lg shadow-inner"
-                    onClick={() => clickSquare(1, 2)}
-                >
-                    {board[1][2]}
-                </button>
+                <BoardSquare value={board[1][0]} onClick={() => clickSquare(1, 0)} row={1} col={0} />
+                <BoardSquare value={board[1][1]} onClick={() => clickSquare(1, 1)} row={1} col={1} />
+                <BoardSquare value={board[1][2]} onClick={() => clickSquare(1, 2)} row={1} col={2} />
 
                 {/* Row 2 */}
-                <button 
-                    className="bg-slate-100 border-2 border-slate-600 text-4xl font-bold text-slate-800 hover:bg-blue-100 hover:border-blue-500 transition-all duration-200 rounded-lg shadow-inner"
-                    onClick={() => clickSquare(2, 0)}
-                >
-                    {board[2][0]}
-                </button>
-                <button 
-                    className="bg-slate-100 border-2 border-slate-600 text-4xl font-bold text-slate-800 hover:bg-blue-100 hover:border-blue-500 transition-all duration-200 rounded-lg shadow-inner"
-                    onClick={() => clickSquare(2, 1)}
-                >
-                    {board[2][1]}
-                </button>
-                <button 
-                    className="bg-slate-100 border-2 border-slate-600 text-4xl font-bold text-slate-800 hover:bg-blue-100 hover:border-blue-500 transition-all duration-200 rounded-lg shadow-inner"
-                    onClick={() => clickSquare(2, 2)}
-                >
-                    {board[2][2]}
-                </button>
+                <BoardSquare value={board[2][0]} onClick={() => clickSquare(2, 0)} row={2} col={0} />
+                <BoardSquare value={board[2][1]} onClick={() => clickSquare(2, 1)} row={2} col={1} />
+                <BoardSquare value={board[2][2]} onClick={() => clickSquare(2, 2)} row={2} col={2} />
             </div>
         </div>
     )

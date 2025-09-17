@@ -2,7 +2,8 @@
 
 import React, {useState} from 'react';
 import BoardSquare from './BoardSquare';
-import GameControls from './GameControls';
+import GameControls from '../../state/GameControls';
+import GameStatus from './GameStatus';
 
 export default function GameBoard() {
     const [board, setBoard] = useState<(null | 'X' | 'O')[][]>([
@@ -11,6 +12,7 @@ export default function GameBoard() {
         [null, null, null]
     ]);
     const [currentPlayer, setCurrentPlayer] = useState<'X' | 'O'>('X');
+    const [moveCount, setMoveCount] = useState(0);
 
     // Reset the game to initial state
     function resetGame() {
@@ -20,6 +22,7 @@ export default function GameBoard() {
             [null, null, null]
         ]);
         setCurrentPlayer('X');
+        setMoveCount(0);
     }
 
     // Same as reset for now, but could have different logic later
@@ -36,6 +39,7 @@ export default function GameBoard() {
         newBoard[row][col] = currentPlayer;
 
         setBoard(newBoard);
+        setMoveCount(moveCount + 1);
 
         if(currentPlayer === 'X') {
             setCurrentPlayer('O');
@@ -47,7 +51,12 @@ export default function GameBoard() {
     return (
         <div className="flex flex-col items-center p-8">
             <h1 className="text-4xl font-bold mb-4 text-blue-100 drop-shadow-lg">Tic Tac Toe - No Tie</h1>
-            <h2 className="text-2xl mb-6 text-blue-200">Player: <span className="text-blue-300 font-bold">{currentPlayer}</span></h2>
+            
+            <GameStatus 
+                currentPlayer={currentPlayer}
+                moveCount={moveCount}
+                gamePhase={moveCount >= 8 ? 'moving' : 'placing'}
+            />
 
             <div className="grid grid-cols-3 grid-rows-3 gap-3 w-80 h-80 bg-slate-800 p-3 rounded-xl shadow-2xl border border-blue-700/50">
                 {/* Row 0 */}

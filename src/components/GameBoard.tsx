@@ -11,8 +11,8 @@ export default function GameBoard() {
     const gameState = useGameState();
 
     return (
-        <div className="flex flex-col items-center p-8">
-            <h1 className="text-4xl font-bold mb-4 text-blue-100 drop-shadow-lg">TWIST-Tac-Toe</h1>
+        <div className="flex flex-col items-center p-4 md:p-6 lg:p-8 min-h-screen max-w-4xl mx-auto">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-blue-100 drop-shadow-lg">TWIST-Tac-Toe</h1>
             
             <GameStatus 
                 currentPlayer={gameState.currentPlayer}
@@ -21,7 +21,7 @@ export default function GameBoard() {
                 gamePhase={gameState.gamePhase}
             />
 
-            <div className="grid grid-cols-3 grid-rows-3 gap-3 w-80 h-80 bg-slate-800 p-3 rounded-xl shadow-2xl border border-blue-700/50">
+            <div className="grid grid-cols-3 grid-rows-3 gap-2 sm:gap-3 md:gap-4 w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[420px] lg:h-[420px] xl:w-[480px] xl:h-[480px] bg-slate-800 p-3 md:p-4 lg:p-5 rounded-xl shadow-2xl border-2 border-blue-700/50">
                 {/* Row 0 */}
                 <BoardSquare 
                     value={gameState.board[0][0]} 

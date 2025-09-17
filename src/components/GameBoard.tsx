@@ -2,21 +2,36 @@
 
 import React, {useState} from 'react';
 import BoardSquare from './BoardSquare';
+import GameControls from './GameControls';
 
-export default function GameBoard()
-{
+export default function GameBoard() {
     const [board, setBoard] = useState<(null | 'X' | 'O')[][]>([
-            [null, null, null],
-            [null, null, null],
-            [null, null, null]
+        [null, null, null],
+        [null, null, null],
+        [null, null, null]
     ]);
     const [currentPlayer, setCurrentPlayer] = useState<'X' | 'O'>('X');
 
-    function clickSquare(row:number, col:number) {
+    // Reset the game to initial state
+    function resetGame() {
+        setBoard([
+            [null, null, null],
+            [null, null, null],
+            [null, null, null]
+        ]);
+        setCurrentPlayer('X');
+    }
+
+    // Same as reset for now, but could have different logic later
+    function newGame() {
+        resetGame();
+    }
+
+    function clickSquare(row: number, col: number) {
         if(board[row][col] !== null) return;
 
         const newBoard = [...board];
-        newBoard[row]=[...board[row]];
+        newBoard[row] = [...board[row]];
 
         newBoard[row][col] = currentPlayer;
 
@@ -50,6 +65,8 @@ export default function GameBoard()
                 <BoardSquare value={board[2][1]} onClick={() => clickSquare(2, 1)} row={2} col={1} />
                 <BoardSquare value={board[2][2]} onClick={() => clickSquare(2, 2)} row={2} col={2} />
             </div>
+
+            <GameControls onReset={resetGame} onNewGame={newGame} />
         </div>
     )
 

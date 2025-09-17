@@ -17,7 +17,7 @@ export default function BoardSquare({
 }: BoardSquareProps) {
   
   // Build dynamic class names based on state
-  let baseClasses = "text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold transition-all duration-200 rounded-lg shadow-inner aspect-square flex items-center justify-center ";
+  let baseClasses = "text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold transition-all duration-200 rounded-lg shadow-inner aspect-square flex items-center justify-center ";
   
   if (isSelected) {
     // Selected piece - bright blue glow

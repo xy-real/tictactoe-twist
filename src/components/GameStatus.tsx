@@ -47,7 +47,10 @@ export default function GameStatus({
           Player <span className="text-blue-300 font-bold">{currentPlayer}</span>&apos;s turn
         </p>
         <p className="text-sm text-blue-300 mt-1">
-          Click your piece, then click where to move it
+          No new pieces allowed - move your existing pieces only
+        </p>
+        <p className="text-xs text-yellow-300 mt-1">
+          🚫 Board locked at 8 pieces, 1 space remaining
         </p>
       </div>
     );

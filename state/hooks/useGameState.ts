@@ -24,9 +24,9 @@ export default function useGameState() {
       return isValidPlacingMove(board, row, col);
     }
     
-    // In moving phase: more complex logic (for later implementation)
-    // For now, just check if square is empty
-    return isValidPlacingMove(board, row, col);
+    // In moving phase: NO new pieces can be placed
+    // Players can only move existing pieces
+    return false;
   }
 
   // Handle clicking a square
@@ -34,10 +34,16 @@ export default function useGameState() {
     // Don't allow moves if game is over
     if (winner) return;
     
-    // Don't allow invalid moves
+    // In moving phase: prevent any new piece placement
+    if (gamePhase === 'moving') {
+      // TODO: Implement piece selection and movement logic
+      return;
+    }
+    
+    // Don't allow invalid moves in placing phase
     if (!isValidMove(row, col)) return;
 
-    // Create new board with the move using pure function
+    // Create new board with the move using pure function (placing phase only)
     const newBoard = executePlacingMove(board, row, col, currentPlayer);
 
     // Update board

@@ -12,7 +12,7 @@ export default function GameBoard() {
 
     return (
         <div className="flex flex-col items-center p-8">
-            <h1 className="text-4xl font-bold mb-4 text-blue-100 drop-shadow-lg">Tic Tac Toe - No Tie</h1>
+            <h1 className="text-4xl font-bold mb-4 text-blue-100 drop-shadow-lg">TWIST-Tac-Toe</h1>
             
             <GameStatus 
                 currentPlayer={gameState.currentPlayer}

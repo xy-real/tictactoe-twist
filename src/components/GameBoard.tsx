@@ -101,7 +101,7 @@ export default function GameBoard() {
                 />
             </div>
 
-            <GameControls onReset={gameState.resetGame} onNewGame={gameState.newGame} />
+            <GameControls onReset={gameState.resetGame} />
         </div>
     )
 
